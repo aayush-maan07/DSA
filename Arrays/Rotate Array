@@ -1,0 +1,21 @@
+# https://www.geeksforgeeks.org/problems/rotate-array-by-n-elements-1587115621/1
+
+class Solution {
+    public void rotateArr(int arr[], int d) {
+        // code here
+        d=d%arr.length;
+        rotate(arr, 0, d-1);
+        rotate(arr, d, arr.length-1);
+        rotate(arr, 0,arr.length-1);
+    }
+    
+    public void rotate(int arr[],int i,int j){
+        while(i<j){
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            i++;
+            j--;
+        }
+    }
+}
