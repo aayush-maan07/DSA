@@ -1,0 +1,31 @@
+// https://www.geeksforgeeks.org/problems/count-element-occurences/1
+
+class Solution {
+    public int countOccurence(int[] arr, int k) {
+        // code here
+        int count=0;
+        
+        int max = Integer.MIN_VALUE;
+        
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]>max) max = arr[i]; 
+        }
+        
+        int[] dArr = new int[max+1];
+        
+        for(int i=0;i<arr.length;i++){
+            int idx = arr[i];
+            dArr[idx]+=1;
+        }
+        
+        int criteria = arr.length/k;
+        
+        
+        for(int i=0;i<dArr.length;i++){
+          if(dArr[i]>criteria ) count++;
+        }
+        
+        return count;
+        
+    }
+}
