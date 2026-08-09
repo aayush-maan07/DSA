@@ -1,0 +1,17 @@
+// https://www.geeksforgeeks.org/problems/remaining-string3515/1
+
+class Solution {
+    public String printString(String s, char ch, int count) {
+        // code here
+        String newStr ="";
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)==ch){
+                count--;
+                if(count==0){
+                    newStr = s.substring(i+1);
+                }
+            }
+        }
+        return newStr;
+    }
+}
