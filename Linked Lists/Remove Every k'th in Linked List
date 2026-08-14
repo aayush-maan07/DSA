@@ -1,0 +1,24 @@
+//https://www.geeksforgeeks.org/problems/remove-every-kth-node/1
+
+class Solution {
+    Node deleteK(Node head, int k) {
+
+        if (head == null || k<2) {
+            return null;
+        }
+
+        Node temp = head;
+
+        while (temp != null) {
+            for (int i = 1; i < k - 1 && temp.next != null; i++) {
+                temp = temp.next;
+            }
+            if (temp.next == null) {
+                break;
+            }
+            temp.next = temp.next.next;
+            temp = temp.next;
+        }
+        return head;
+    }
+}
