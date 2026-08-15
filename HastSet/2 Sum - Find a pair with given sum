@@ -1,0 +1,21 @@
+// https://www.geeksforgeeks.org/problems/2-sum-find-a-pair-with-given-sum/1
+
+class Solution {
+    public List<Integer> twoSum(int arr[], int target) {
+        // code here
+        HashSet<Integer> set = new HashSet<>();
+        for(int i: arr){
+            int complement = target - i;
+            if(set.contains(complement)){
+                List<Integer> result  =  new ArrayList<>();
+                result.add(complement);
+                result.add(i);
+                return result;
+            }
+            
+            set.add(i);
+        }
+        
+        return new ArrayList<>();
+    }
+}
