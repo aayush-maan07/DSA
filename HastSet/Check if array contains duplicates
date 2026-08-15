@@ -1,0 +1,16 @@
+// https://www.geeksforgeeks.org/problems/check-if-array-contains-duplicates/1
+
+class Solution {
+    public boolean checkDuplicates(int arr[]) {
+        // Code here
+        HashSet<Integer> set = new HashSet<>();
+        for(int i: arr){
+            if(set.contains(i)){
+                return true;
+            }
+            
+            set.add(i);
+        }
+        return false;
+    }
+}
