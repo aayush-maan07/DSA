@@ -1,0 +1,31 @@
+// https://www.geeksforgeeks.org/problems/frequency-game/1
+
+class Solution {
+    public int largeAndMinFreq(int[] arr) {
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        // Count frequencies
+        for (int num : arr) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+
+        int minFreq = Integer.MAX_VALUE;
+
+        // Find minimum frequency
+        for (int freq : map.values()) {
+            minFreq = Math.min(minFreq, freq);
+        }
+
+        int max = Integer.MIN_VALUE;
+
+        // Find largest element with minimum frequency
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            if (entry.getValue() == minFreq) {
+                max = Math.max(max, entry.getKey());
+            }
+        }
+
+        return max;
+    }
+}
